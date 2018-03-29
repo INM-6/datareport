@@ -1,5 +1,3 @@
 .snakemake
 
-juser_publications_*yaml
-juser_authors_*yaml
-
+data/
