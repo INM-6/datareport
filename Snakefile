@@ -21,12 +21,35 @@ def data(name):
     return os.path.join(datadir, name.lstrip('/'))
 
 
-rule Report:
+rule all:
+    input:
+        'AuthorList.md',
+        'TelephoneList.md',
+        'PublicationsList_2017.md',
+
+rule AuthorList:
+    '''
+    output: MARKDOWN file
+    '''
+    input:
+        'templates/AuthorList.md',
+        list= 'data/juser_authors_2017.yaml',
+    output:
+        'AuthorList.md'
+    run:
+        shell('./reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
+            'template': input[0],
+            'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
+            'output': output[0],
+        })
+
+rule TelephoneList:
+    '''
+    output: MARKDOWN file
+    '''
     input:
         'templates/TelephoneList.md',
-        phonelist= 'data/Phonelist_20170921.yaml',
-        groups= 'data/HBP-groups.yaml',
-        authors= 'data/juser_authors_2017.yaml',
+        phonelist = 'data/Phonelist_20170921.yaml',
     output:
         'TelephoneList.md'
     run:
@@ -35,6 +58,25 @@ rule Report:
             'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
             'output': output[0],
         })
+
+rule PublicationsList:
+    '''
+    output: MARKDOWN file
+    '''
+    input:
+        'templates/PublicationsList.md',
+        groups = 'data/HBP-groups.yaml',
+        authors = 'data/juser_authors_{year}.yaml',
+        publications = 'data/juser_publications_{year}.yaml',
+    output:
+        'PublicationsList_{year}.md'
+    run:
+        shell('./reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
+            'template': input[0],
+            'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
+            'output': output[0],
+        })
+
 
 rule fetchall:
     input:
@@ -47,6 +89,8 @@ rule fetch_juser:
     '''
     Do a juser query and reformat the results to yaml.
     You might need to be logged in in your browser for this to work.
+
+    output: YAML file
     '''
     output:
         data('juser_publications_{year,\d{4}}.yaml')
@@ -61,6 +105,8 @@ rule fetch_juser:
 rule fetch_authors:
     '''
     fetch all authors and their ids
+
+    output: YAML file
     '''
     output:
         data('juser_authors_{year,\d{4}}.yaml')

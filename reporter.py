@@ -42,6 +42,8 @@ if __name__ == '__main__':
     log.debug("template directory '%s'", args['--template-dir'])
     env = Environment(
         loader=FileSystemLoader(args['--template-dir']),
+        trim_blocks=True,
+        lstrip_blocks=True,
         #autoescape=select_autoescape(['html', 'xml'])
     )
 
