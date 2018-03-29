@@ -1,0 +1,12 @@
+dependencies:
+  - beautifulsoup4=4.6.0=py36_0
+  - docopt=0.6.2=py36_0
+  - jinja2=2.9.6=py36_0
+  - pandoc=1.19.2.1=hea2e7c5_1
+  - pandocfilters=1.4.2=py36ha6701b7_1
+  - pip=9.0.1=py36_1
+  - pypandoc=1.4=py36_0
+  - python=3.6.1=2
+  - ruamel_yaml=0.11.14=py36_1
+  - pip:
+    - snakemake==4.8.0
