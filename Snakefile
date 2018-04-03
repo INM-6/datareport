@@ -3,9 +3,7 @@ from urllib.request import urlopen
 import os.path
 import re
 
-years = [2016, 2017, 2018]
-infos = ['authors', 'publications']
-datadir = 'data/'
+configfile: 'config.yaml'
 
 def makeSearch(searchparameters, of='hx', sf='year', rg='', so='d'):
     ' creates a lambda expression to fill wildcards into a juser query URL '
@@ -18,14 +16,17 @@ def makeSearch(searchparameters, of='hx', sf='year', rg='', so='d'):
 
 def data(name):
     ' returns a full filename to the datafile with given name '
-    return os.path.join(datadir, name.lstrip('/'))
+    return os.path.join(config['datadir'], name.lstrip('/'))
+
+def report(name):
+    return os.path.join(config['outdir'], name.lstrip('/'))
 
 
 rule all:
     input:
-        'AuthorList.md',
-        'TelephoneList.md',
-        'PublicationsList_2017.md',
+        report('AuthorList.md'),
+        report('TelephoneList.md'),
+        report('PublicationsList_2017.md'),
 
 rule AuthorList:
     '''
@@ -35,7 +36,7 @@ rule AuthorList:
         'templates/AuthorList.md',
         list= 'data/juser_authors_2017.yaml',
     output:
-        'AuthorList.md'
+        report('AuthorList.md')
     run:
         shell('./reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
             'template': input[0],
@@ -51,7 +52,7 @@ rule TelephoneList:
         'templates/TelephoneList.md',
         phonelist = 'data/Phonelist_20170921.yaml',
     output:
-        'TelephoneList.md'
+        report('TelephoneList.md')
     run:
         shell('./reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
             'template': input[0],
@@ -69,7 +70,7 @@ rule PublicationsList:
         authors = 'data/juser_authors_{year}.yaml',
         publications = 'data/juser_publications_{year}.yaml',
     output:
-        'PublicationsList_{year}.md'
+        report('PublicationsList_{year}.md')
     run:
         shell('./reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
             'template': input[0],
@@ -81,8 +82,8 @@ rule PublicationsList:
 rule fetchall:
     input:
         expand(data('juser_{info}_{year}.yaml'),
-            info=infos,
-            year=years,
+            info=config['infos'],
+            year=config['years'],
         )
 
 rule fetch_juser:
