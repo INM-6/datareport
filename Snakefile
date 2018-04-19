@@ -38,7 +38,7 @@ rule mkhtml:
         files=[report('{name}.md')],
         css='document.css',
     output:
-        'reports_html/{name}.html',
+        report_html('{name}.html'),
     shell:
         '''
         pandoc -f markdown+simple_tables+multiline_tables -t html --css {input.css} -o {output} {input.files}
