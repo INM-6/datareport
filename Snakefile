@@ -21,12 +21,28 @@ def data(name):
 def report(name):
     return os.path.join(config['outdir'], name.lstrip('/'))
 
+def report_html(name):
+    return os.path.join(config['outdir_html'], name.lstrip('/'))
+
 
 rule all:
     input:
-        report('AuthorList.md'),
-        report('TelephoneList.md'),
-        report('PublicationsList_2017.md'),
+        report_html('AuthorList.html'),
+        report_html('TelephoneList.html'),
+        report_html('PublicationsList_2017.html'),
+        report_html('IT-Inventory.html'),
+
+
+rule mkhtml:
+    input:
+        files=[report('{name}.md')],
+        css='document.css',
+    output:
+        'reports_html/{name}.html',
+    shell:
+        '''
+        pandoc -f markdown+simple_tables+multiline_tables -t html --css {input.css} -o {output} {input.files}
+        '''
 
 rule AuthorList:
     '''
@@ -43,6 +59,21 @@ rule AuthorList:
             'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
             'output': output[0],
         })
+
+
+rule IT_inventory:
+    input:
+        'templates/IT-Inventory.md',
+        data=os.path.expanduser('~/sdvlp/edvdata/edvdata.yaml'),
+    output:
+        report('IT-Inventory.md')
+    run:
+        shell('./reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
+            'template': input[0],
+            'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
+            'output': output[0],
+        })
+
 
 rule TelephoneList:
     '''
