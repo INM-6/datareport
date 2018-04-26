@@ -33,7 +33,7 @@ import sys
 log = logging.getLogger()
 logging.basicConfig(level=logging.INFO)
 
-if __name__ == '__main__':
+def main():
     args = docopt(__doc__)
     if args['--verbose']:
         log.setLevel(logging.DEBUG)
@@ -65,3 +65,5 @@ if __name__ == '__main__':
     with ostream as outfile:
         outfile.write(tmpl.render(**data))
 
+if __name__ == '__main__':
+    main()

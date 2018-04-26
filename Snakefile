@@ -31,6 +31,7 @@ rule all:
         report_html('TelephoneList.html'),
         report_html('PublicationsList_2017.html'),
         report_html('IT-Inventory.html'),
+        report_html('examples.html'),
 
 
 rule mkhtml:
@@ -54,7 +55,7 @@ rule AuthorList:
     output:
         report('AuthorList.md')
     run:
-        shell('./reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
+        shell('./datareport/reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
             'template': input[0],
             'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
             'output': output[0],
@@ -68,7 +69,7 @@ rule IT_inventory:
     output:
         report('IT-Inventory.md')
     run:
-        shell('./reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
+        shell('./datareport/reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
             'template': input[0],
             'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
             'output': output[0],
@@ -85,7 +86,23 @@ rule TelephoneList:
     output:
         report('TelephoneList.md')
     run:
-        shell('./reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
+        shell('./datareport/reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
+            'template': input[0],
+            'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
+            'output': output[0],
+        })
+
+rule examples:
+    '''
+    output: MARKDOWN file
+    '''
+    input:
+        'templates/examples.md',
+        data = 'data/keywords.yaml',
+    output:
+        report('examples.md')
+    run:
+        shell('./datareport/reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
             'template': input[0],
             'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
             'output': output[0],
@@ -103,7 +120,7 @@ rule PublicationsList:
     output:
         report('PublicationsList_{year}.md')
     run:
-        shell('./reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
+        shell('./datareport/reporter.py -t %(template)s -o %(output)s %(datadef)s' % {
             'template': input[0],
             'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
             'output': output[0],
@@ -181,3 +198,26 @@ rule csv2yaml:
                     continue
                 data.append(dict(zip(head, row)))
             yaml.dump(data, stream=outfile)
+
+
+rule upload:
+    input:
+        'dist/datareport-0.1.2.tar.gz'
+    params:
+        repo = "testpypi"
+    shell:
+        '''
+        twine upload --repository {params.repo} {input}
+        '''
+
+
+rule package:
+    input:
+        'datareport/',
+    output:
+        'dist/datareport-0.1.2.tar.gz'
+    shell:
+        '''
+        python setup.py sdist
+        '''
+
