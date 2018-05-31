@@ -1,0 +1,10 @@
+type: dict
+keys:
+  type: str
+  regex: '\w+'
+values:
+  type: in
+  values:
+  - type: str
+    regex: '\w+'
+  - type: dict

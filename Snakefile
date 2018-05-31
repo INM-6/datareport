@@ -221,3 +221,18 @@ rule package:
         python setup.py sdist
         '''
 
+
+rule test:
+    input:
+        'test.verify.done'
+
+rule test_verify:
+    input:
+        prog='datareport/verify.py',
+        data=['tests/verify.yaml']*2,
+    output:
+        temporary(touch('test.verify.done')),
+    shell:
+        '''
+        ./{input.prog} --validation {input.data}
+        '''
