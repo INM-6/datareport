@@ -1,0 +1,33 @@
+from urllib.parse import urlencode, urlunparse
+from urllib.request import urlopen
+import os.path
+import re
+
+configfile: 'config.yaml'
+
+version = config['version']
+
+rule upload:
+    '''
+    This rule uploads the latest release to testpypi.
+    '''
+    input:
+        'dist/datareport-{version}.tar.gz'
+    params:
+        repo = "testpypi"
+    shell:
+        '''
+        twine upload --repository {params.repo} {input}
+        '''
+
+
+rule package:
+    input:
+        '../datareport/',
+    output:
+        'dist/datareport-{version}.tar.gz'
+    shell:
+        '''
+        python setup.py sdist
+        '''
+
