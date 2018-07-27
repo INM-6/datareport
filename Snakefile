@@ -45,9 +45,10 @@ rule mkhtml:
         pandoc -f markdown+simple_tables+multiline_tables -t html --css {input.css} -o {output} {input.files}
         '''
 
+
 rule AuthorList:
     '''
-    output: MARKDOWN file
+    This rule renders the authors database into a nicely formatted MARKDOWN file
     '''
     input:
         'templates/AuthorList.md',
@@ -153,7 +154,7 @@ rule fetch_juser:
         '''
 rule fetch_authors:
     '''
-    fetch all authors and their ids
+    fetch all authors and their ids from the Juser database. You need to have access to the relevant data, of course.
 
     output: YAML file
     '''
