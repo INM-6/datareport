@@ -1,0 +1,82 @@
+from urllib.parse import urlencode, urlunparse
+from urllib.request import urlopen
+import os.path
+import re
+
+configfile: 'config.yaml'
+
+
+def data(name):
+    ' returns a full filename to the datafile with given name '
+    return os.path.join(config['datadir'], name.lstrip('/'))
+
+def report(name):
+    return os.path.join(config['outdir'], name.lstrip('/'))
+
+def report_html(name):
+    return os.path.join(config['outdir_html'], name.lstrip('/'))
+
+reporter = "../../datareport/reporter.py"   # this should just be "reporter"
+
+rule all:
+    input:
+        report_html('Phonelist.html'),
+
+
+rule mkhtml:
+    input:
+        files=[report('{name}.md')],
+        css=report_html('document.css'),
+    output:
+        report_html('{name}.html'),
+    shell:
+        '''
+        pandoc -f markdown+simple_tables+multiline_tables -t html --css "$(basename "{input.css}")" -o {output} {input.files}
+        '''
+
+rule copy_css:
+    output:
+        '{path}/{name}.css',
+    input:
+        '{name}.css',
+    shell:
+        'cp -iv {input} {output}'
+
+rule make_Phonelist:
+    '''
+    output: MARKDOWN file
+    '''
+    input:
+        'templates/Phonelist.md',
+        phonelist = 'data/Phonelist_20170921.yaml',
+    output:
+        report('Phonelist.md')
+    run:
+        shell('%(reporter)s -t %(template)s -o %(output)s %(datadef)s' % {
+            'reporter': reporter,
+            'template': input[0],
+            # this makes the snakemake input dictionary available in the reporter template:
+            'datadef': " ".join(["%s=%s" % kv for kv in input.items()]),
+            'output': output[0],
+        })
+
+
+rule csv2yaml:
+    input:
+        '{name}.csv'
+    output:
+        temporary('{name}.yaml'),
+    run:
+        from ruamel import yaml
+        import csv
+        with open(input[0], 'r') as infile, open(output[0], 'w') as outfile:
+            csvinput = csv.reader(infile)
+            head = None
+            data = list()
+            for row in csvinput:
+                if head is None:
+                    head = row
+                    continue
+                data.append(dict(zip(head, row)))
+            yaml.dump(data, stream=outfile)
+
