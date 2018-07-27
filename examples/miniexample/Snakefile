@@ -1,0 +1,14 @@
+rule example:
+    '''
+    This example show the absolute minimum required to build a report.
+    '''
+    input:
+        template = 'example.template.md',
+        data = 'keywords.yaml',
+    output:
+        'example_report.md',
+    shell:
+        '''
+        ../../datareport/reporter.py -t {input.template} -o {output} data={input.data}
+        '''
+
