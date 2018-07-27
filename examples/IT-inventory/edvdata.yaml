@@ -1,0 +1,1198 @@
+
+serial:
+
+  R9-VGH3V 12/11:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X230 (2325-CT5)
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  2015-321:
+    type: desktop
+    manufacturer: DELL
+    model: unknown
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm10001]
+        newstate: INUSE
+
+  '99784124':
+    type: screen
+    manufacturer: EIZO
+    model: FlexScan, EV2436W, Mfd. 2014.12.05
+    history:
+    - installed:
+        date: unknown
+        operator: bontenackels
+        references:
+        - [computer, inm10001]
+
+  PC-06KU52 15/07:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X250, 20CM-001VGE
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6146]
+        newstate: INUSE
+
+  PC-OHRQM4 16/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X260, 20F5-S80100
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6193]
+        newstate: INUSE
+
+  PF-O01XCT 13/10:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X240, 20AL-007YGE
+    history:
+    - deinstalled:
+        references:
+        - [computer, inm6113]
+        newstate: AVAILABLE
+
+  PC-02PPFA 14/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X240, 20AL-CT01WW
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6132]
+    - problem:
+        description: |
+          fan error! preventing to turn on the laptop.
+          fan seems OK, mainboard broken.
+          Lenovo Support will come and fix it.
+    - repair:
+        date: Wed, 10 Jan 2018 12:20:00 +0100
+        references: []
+        newstate: INUSE
+
+  B1753 08/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T400 (2764-CTO)
+    history:
+    - problem:
+        date: 2018-06-18
+        references:
+        - [computer, inm6083]
+        newstate: BROKEN
+
+  R9-G457K 11/09:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X220 (4290-W1C)
+    history:
+    - deinstalled:
+        date: unknown
+        references:
+        - [computer, inm6024]
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-06-18
+        newstate: INUSE
+
+  9R-FT1PH 11/08:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T420s, 4147NDG
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6042]
+        newstate: INUSE
+    - deinstalled:
+        date: Fri, 24 Nov 2017 17:46:21 +0100
+        references:
+        - [computer, inm6042]
+        newstate: AVAILABLE
+    - installed:
+        date: Tue, 09 Jan 2018 13:43:51 +0100
+        references:
+        - [computer, inm6042]
+        newstate: INUSE
+
+  7D7599DF:
+    type: equipment
+    manufacturer: Logitech
+    model: HD Pro Webcam C920
+    history:
+    - buy:
+        date: unknown
+        operator: bontenackels
+        references:
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+    - installed:
+        date: Mon, 27 Nov 2017 16:08 +0100
+        newstate: INUSE
+
+  PF-001XXT 13/10:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X240 (20AL-007YGE)
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6111]
+        newstate: INUSE
+
+  PF-00T9YU 14/03:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X240 (20AM-S21B00)
+    history:
+    - deinstalled:
+        date: unknown
+        references:
+        - [computer, inm6119]
+        newstate: AVAILABLE
+
+
+  R9-BF7PP 11/02:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T510 (4349-WK8)
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6038]
+        newstate: INUSE
+
+  PC-0CKQ92 16/06:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T460p (20FX-S05500)
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6043]
+        newstate: INUSE
+    - deinstalled:
+        date: '2016'
+        references:
+        - [computer, inm6043]
+        newstate: AVAILABLE
+    - installed:
+        date: unknown
+        newstate: INUSE
+    - deinstalled:
+        date: 2018-06-18
+        newstate: AVAILABLE
+
+  R8-HG70N 11/08:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T420 (4180-PH2)
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6044]
+        newstate: INUSE
+    - deinstalled:
+        date: 2018-01-10
+        references:
+        - [computer, inm6044]
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-05-14
+        references:
+        - [computer, inm6044]
+        - [serial, S15XNSAFB19497A]
+        newstate: INUSE
+
+  D55599DF:
+    type: equipment
+    manufacturer: Logitech
+    model: HD Pro Webcam C920
+    history:
+    - buy:
+        date: unknown
+        newstate: AVAILABLE
+        references:
+        - [infrastructure, spare]
+    - installed:
+        date: Fri, 01 Dec 2017 17:38:24 +0100
+        newstate: INUSE
+    - deinstalled:
+        date: Fri, 04 May 2018 15:02:41 +0200
+        newstate: AVAILABLE
+    - installed:
+        date: Fri, 04 May 2018 15:02:58 +0200
+        newstate: INUSE
+
+  PC-02FZ3G 14/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T440s (20AQ-CT01WW)
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6133]
+        newstate: INUSE
+
+  PC-0462JZ 15/03:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T450s (20BX-CT01WW)
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+    - renamed:
+        date: unknown
+        operator: bontenackels
+        references:
+        - [computer, inm6127]
+    - installed:
+        date: Wed, 22 Nov 2017 16:04:21 +0100
+        references:
+        - [computer, inm6127]
+        - [serial, '151026401458']
+        - [serial, S15XNSAFB19497A]
+        newstate: INUSE
+    - deinstalled:
+        date: 2018-05-14
+        references:
+        - [computer, inm6127]
+        - [serial, S15XNSAFB19497A]
+        newstate: DEFECT
+
+  R8-HG70P 11/08:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T420 (4180-PH2)
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6045]
+        newstate: INUSE
+    - problem:
+        date: Thu, 30 Nov 2017 17:30:44 +0100
+        description: backlight seems to have broken, associated with switching screens
+        newstate: PROBLEM
+
+
+  PC-02PPFB 14/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad x240 (20AL-CT01WW)
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  R9-Z22R6 13/06:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad x230 (2325-CT5)
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6174]
+        newstate: INUSE
+    - deinstalled:
+        date: Wed, 14 Feb 2018 16:31:32 +0100
+        references:
+        - [computer, inm6174]
+        newstate: AVAILABLE
+    - borrowed:
+        date: Tue, 20 Mar 2018 16:11:51 +0100
+        date-end: Fri, 23 Mar 2018 10:54:35 +0100
+    - problem:
+        date: Wed, 18 Apr 2018 14:03:59 +0200
+        newstate: BROKEN
+
+  PF-01D82Q 14/04:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X240
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6008]
+        comment: temporary laptop before own one
+        newstate: INUSE
+    - deinstalled:
+        date: unknown
+        references:
+        - [infrastructure, spare]
+        newstate: BROKEN
+    - repair:
+        date: unknown
+        references:
+        - [computer, inm6008]
+        newstate: INUSE
+    - installed:
+        date: Fri, 24 Nov 2017 12:12:44 +0100
+        references:
+        - [computer, inm6008]
+    - problem:
+        date: Fri, 24 Oct 2017 15:31:45 +0100
+        description: sometimes the laptop freezes with the screen showing random-rgb squares.
+    - installed:
+        date: Fri, 24 Nov 2017 10:33:43 +0100
+        comment: temporary laptop for lost other one
+        newstate: INUSE
+    - deinstalled:
+        date: Wed, 6 Dec 2017 10:33:43 +0100
+        references:
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+
+  S15XNSAFB19497A:
+    type: harddisk
+    manufacturer: Samsung
+    model: SSD 850PRO, 512GB
+    history:
+    - installed:
+        date: Wed, 22 Nov 2017 16:01:50 +0100
+        references:
+        - [computer, inm6127]
+        newstate: INUSE
+    - installed:
+        date: 2018-05-14
+        references:
+        - [computer, inm6044]
+        comment: inm6127 defective
+        newstate: INUSE
+
+  '151026401458':
+    type: harddisk
+    manufacturer: Sandisk
+    model: SSD X300s, 512GB
+    history:
+    - deinstalled:
+        date: Wed, 22 Nov 2017 16:06:52 +0100
+        references:
+        - [computer, inm6127]
+        newstate: BROKEN
+
+  CN-07JNY5-74445-49C-616S:
+    type: screen
+    manufacturer: Dell
+    model: U2713HMt
+    history:
+    - installed:
+        date: Fri, 24 Nov 2016 10:33:47 +0100
+        references:
+        - [computer, inm6168]
+        newstate: INUSE
+    - borrowed:
+        date: Mon, 18 Dec 2018 10:00:43 +0100
+        date-end: Wed, 20 Jan 2018 18:02:11 +0100
+
+  CN-0GK0KD-74445-29J-364L:
+    type: screen
+    manufacturer: Dell
+    model: U2713HMt
+    history:
+    - installed:
+        date: Fri, 24 Nov 2016 10:33:47 +0100
+        references:
+        - [computer, inm6168]
+        newstate: INUSE
+    - borrowed:
+        date: Mon, 18 Dec 2018 10:00:43 +0100
+        date-end: Wed, 20 Jan 2018 18:02:11 +0100
+
+  PC-0HLN9G 16/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T460s (20F9-0042GE)
+    history:
+    - buy:
+        date: 2017-02-06
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-03-26
+        references:
+        - [computer, inm6181]
+        newstate: INUSE
+
+  PC-0HLN9Q 16/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T460s
+    history:
+    - installed:
+        date: Wed, 22 Nov 2017 16:14:25 +0100
+        references:
+        - [computer, inm6180]
+        - [infrastructure, presentations]
+        newstate: INUSE
+    - borrowed:
+        date: Tue, 16 Jan 2018 11:51:39 +0100
+        date-end: Wed, 17 Jan 2018 11:50:46 +0100
+        newstate: INUSE
+
+  NA97J658:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: Backup Plus Portable (Slim), 2TB
+    history:
+    - buy:
+        date: Mon, 23 Okt 2017 00:00:00 +0000
+        references:
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+    - installed:
+        date: Wed, 22 Nov 2017 16:22:01 +0100
+        newstate: INUSE
+
+  NA97J6Y6:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: Backup Plus Portable (Slim), 2TB
+    history:
+    - buy:
+        date: Mon, 23 Okt 2017 00:00:00 +0000
+        references:
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+    - installed:
+        date: Fr 26. Jan 15:50:17 CET 2018
+        newstate: INUSE
+
+  NA97H76P:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: Backup Plus Portable (Slim), 2TB
+    history:
+    - buy:
+        date: Mon, 23 Okt 2017 00:00:00 +0000
+        references:
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+    - installed:
+        date: Fr 26. Jan 15:50:17 CET 2018
+        newstate: INUSE
+
+  NA97J7AS:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: Backup Plus Portable (Slim), 2TB
+    history:
+    - buy:
+        date: Mon, 23 Okt 2017 00:00:00 +0000
+        references:
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+    - installed:
+        date: Fri, 09 Feb 2018 15:37:06 +0100
+        newstate: INUSE
+
+  NA97J7GK:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: Backup Plus Portable (Slim), 2TB
+    history:
+    - buy:
+        date: Mon, 23 Okt 2017 00:00:00 +0000
+        references:
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+    - installed:
+        date: Tue, 13 Feb 2018 15:21:08 +0100
+        newstate: INUSE
+
+  NA97J7HB:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: Backup Plus Portable (Slim), 2TB
+    history:
+    - buy:
+        date: Mon, 23 Okt 2017 00:00:00 +0000
+        references:
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+    - installed:
+        date: Fr 2. Mär 16:46:03 CET 2018
+        newstate: INUSE
+
+  WNJP4XVM:
+    type: harddisk (external)
+    manufacturer: HGST
+    model: 500GB, SATA 6.0Gb/s, 2.5" (HTS725050A7E630), Mfd. 2013-06-15
+    history:
+    - deinstalled:
+        date: unknown
+        references: []
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-03-13
+        newstate: INUSE
+
+  S37MJ9FH204564:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: 2TB HDD, ST2000LM003
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  S37MJ9FH204542:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: ..., 2TB
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  C507P800528:
+    type: printer
+    manufacturer: RICOH
+    model: MP C307, color laser printer
+    history:
+    - installed:
+        date: Oct 2017
+        references:
+        - [infrastructure, printer]
+        - [computer, inm6198]
+        newstate: INUSE
+
+  C507P800811:
+    type: printer
+    manufacturer: RICOH
+    model: MP C307, color laser printer
+    history:
+    - installed:
+        date: Oct 2017
+        references:
+        - [infrastructure, printer]
+        newstate: INUSE
+
+  S37MJ9FH204515:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: ST2000LM003, HDD, 2TB
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  NA97J65Y:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: STDR20000101, HDD, Backup Plus Portable 2TB (1K9AD7-572)
+    history:
+    - installed:
+        date: Mo 11. Dez 17:46:54 CET 2017
+        newstate: INUSE
+
+  CN-07JNY5-74445-394-279L:
+    type: screen
+    manufacturer: Dell
+    model: U2713MHt, Sep/2013
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+    - borrowed:
+        date: Mon, 18 Dec 2018 10:00:43 +0100
+        date-end: Wed, 20 Jan 2018 18:02:11 +0100
+
+  CN-0Y1H5T-74261-2AL-3PGL:
+    type: screen
+    manufacturer: Dell
+    model: U2412Mb, Oct/2012
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+    - borrowed:
+        date: Mon, 18 Dec 2018 10:00:43 +0100
+        date-end: Wed, 20 Jan 2018 18:02:11 +0100
+
+  CN-0VGTFG-64180-54N-053L:
+    type: screen
+    manufacturer: Dell
+    model: U2715Hc, Apr/2015
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+    - borrowed:
+        date: Mon, 18 Dec 2018 10:00:43 +0100
+        date-end: Wed, 20 Jan 2018 18:02:11 +0100
+
+  CN-0VGTFG-64180-54N-052L:
+    type: screen
+    manufacturer: Dell
+    model: U2715Hc, Apr/2015
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+    - borrowed:
+        date: Mon, 18 Dec 2018 10:00:43 +0100
+        date-end: Wed, 20 Jan 2018 18:02:11 +0100
+
+  CN-0GK0KD-74445-293-366L:
+    type: screen
+    manufacturer: Dell
+    model: U2713HMt, Sep/2012
+    history:
+    - installed:
+        date: unknown
+        references: []
+        operator: bontenackels
+
+  CN-07JNY5-7444-549C-918S:
+    type: screen
+    manufacturer: Dell
+    model: U2713HMt
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+    - borrowed:
+        date: Mon, 18 Dec 2018 10:00:43 +0100
+        date-end: Wed, 20 Jan 2018 18:02:11 +0100
+
+  CN-07JNYS-74445-49C-615S:
+    type: screen
+    manufacturer: Dell
+    model: U2713HMt
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+    - borrowed:
+        date: Mon, 18 Dec 2018 10:00:43 +0100
+        date-end: Wed, 20 Jan 2018 18:02:11 +0100
+
+  CN-0GK0KD-74445-277-102L:
+    type: screen
+    manufacturer: Dell
+    model: U2713HMt
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+    - borrowed:
+        date: Mon, 18 Dec 2018 10:00:43 +0100
+        date-end: Wed, 20 Jan 2018 18:02:11 +0100
+
+  C02MV2ANFH05:
+    type: laptop
+    manufacturer: Apple
+    model: '13.3inch MacBook Pro (MBP 13.3/2.6/16GB/512Flash/INT/DEU, Model-No: A1502, Part-No: Z0QC000AF)'
+    history:
+    - buy:
+        date: unknown
+        references: []
+        newstate: AVAILABLE
+    - installed:
+        date: Mon, 26 Mar 2018 10:52:48 +0200
+        newstate: INUSE
+    - installed:
+        date: 2018-05-04
+
+  C02M62CQFH04:
+    type: laptop
+    manufacturer: Apple
+    model: '13.3inch MacBook Pro'
+    history:
+    - deinstalled:
+        date: unknown
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-07-01
+        references:
+        - [computer, macbook]
+        newstate: INUSE
+
+  AppleNetworkAdapter1:
+    type: network-adapter
+    manufacturer: Apple
+    model: 'thunderbold-ethernet adapter'
+    history:
+    - buy:
+        date: unknown
+        newstate: AVAILABLE
+
+  AppleNetworkAdapter2:
+    type: network-adapter
+    manufacturer: Apple
+    model: 'thunderbold-ethernet adapter'
+    history:
+    - buy:
+        date: unknown
+        references: []
+        newstate: AVAILABLE
+    - installed:
+        date: Mon, 26 Mar 2018 10:51:49 +0200
+        references:
+        - [serial, C02MV2ANFH05]
+        newstate: INUSE
+
+  iMac27inch:
+    type: desktop
+    manufacturer: Apple
+    model: iMac 27\"
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+
+
+  8211030D3D4DCG:
+    type: communication
+    manufacturer: Polycom
+    model: Polycom HDX8000
+    history:
+    - installed:
+        date: unknown
+        location: seminar room
+        references:
+        - [office, 3009]
+        newstate: INUSE
+
+  8214334206FDCN:
+    type: communication
+    model: Polycom HDX7000
+    manufacturer: Polycom
+    history:
+    - installed:
+        date: unknown
+        location: library
+        references:
+        - [office, 3013]
+        newstate: INUSE
+
+  8214360E959ACZ:
+    type: communication
+    model: Polycom HDX4500
+    manufacturer: Polycom
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  8209500C1D56PN:
+    type: communication
+    manufacturer: Polycom
+    model: Polycom HDX7000 HD
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  8210460CDA91CH:
+    type: communication
+    manufacturer: Polycom
+    model: Polycom HDX4000
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  8208210A15C4PH:
+    type: communication
+    manufacturer: Polycom
+    model: Polycom HDX4000
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  8210470CDC2ACH:
+    type: communication
+    manufacturer: Polycom
+    model: Polycom HDX4000
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  8212020DAB37CH:
+    type: communication
+    manufacturer: Polycom
+    model: Polycom HDX4000
+    history:
+    - installed:
+        date: unknown
+        newstate: INUSE
+
+  8210470CDC72CH:
+    type: communication
+    manufacturer: Polycom
+    model: Polycom HDX4000
+    history:
+    - installed:
+        date: unknown
+        newstate: HOLD
+
+  88110810F2FECH:
+    type: communication
+    manufacturer: Polycom
+    model: Polycom HDX4002
+    history:
+    - installed:
+        date: Sept 2011
+        newstate: INUSE
+
+  0CDC2A:
+    type: communication
+    manufacturer: Polycom
+    model: Polycom HDX4000
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [infrastructure, spare]
+        newstate: AVAILABLE
+
+  004A53:
+    type: communication
+    manufacturer: Polycom
+    model: Polycom HDX4000 Display
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [serial, 0CDC2A]
+        newstate: AVAILABLE
+
+  PC-0586FG 15/05:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T450s (20BX-CT01WW)
+    history:
+    - deinstalled:
+        date: unknown
+        references:
+        - [computer, inm6041]
+        newstate: AVAILABLE
+    - installed: 
+        date: 2018-04-23
+        references:
+        - [computer, inm6041]
+        newstate: INUSE
+    - installed:
+        date: 2017-08-28
+        references:
+        - [computer, inm6041]
+        newstate: INUSE
+    - deinstalled:
+        date: Mon, 18 Aug 2017 10:02:27 +0100
+        references:
+        - [computer, inm6041]
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-04-27
+        references:
+        - [computer, inm6041]
+        newstate: INUSE
+
+  PF-0PXWU4 16/10:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad T460p (20FW-003NGE)
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [computer, inm6182]
+        newstate: AVAILABLE
+    - installed:
+        date: Do 24. Aug 21:00:00 CEST 2017
+        references:
+        - [computer, inm6182]
+        newstate: INUSE
+
+  PC-0HRQM3 16/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X260 (20F5-S80100)
+    history:
+    - installed:
+        date: 
+        references:
+        - [computer, inm6189]
+        newstate: INUSE
+
+  PC-0HRQM2 16/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X260 (20F5-S80100)
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [computer, inm6184]
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-04-16
+        newstate: INUSE
+
+  PC-0HRQM5 16/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X260 (20F5-S80100)
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [computer, inm6185]
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-04-16
+        newstate: INUSE
+
+  PC-0HRQLW 16/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X260 (20F5-S80100)
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [computer, inm6187]
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-04-16
+        references:
+        - [computer, inm6187]
+        newstate: INUSE
+
+  PC-0HRQLX 16/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X260 (20F5-S80100)
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [computer, inm6190]
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-04-16
+        references: []
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-04-27
+        references: 
+        - [computer, inm6190]
+        newstate: INUSE
+
+  PC-0HRQM0 16/12:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X260 (20F5-S80100)
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [computer, inm6192]
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-04-16
+        newstate: INUSE
+    - installed:
+        date: 2018-06-6
+        newstate: INUSE
+
+  PC-0HRQLY:
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X260 (20F5-S80100)
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [computer, inm6191]
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6191]
+        newstate: INUSE
+
+  PC-0HRQLZ :
+    type: laptop
+    manufacturer: Lenovo
+    model: ThinkPad X260 (20F5-S80100)
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [computer, inm6188]
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6188]
+        newstate: INUSE
+
+  UD2-121 LX IG:
+    type: desktop
+    manufacturer: IGEL
+    model: Thin-Client IGEL-D200
+    history:
+    - deinstalled:
+        date: unknown
+        references: []
+        newstate: AVAILABLE
+
+  mac-XBCDEFABCD:
+    type: network-adapter
+    manufacturer: Apple
+    model: A1277 USB ethernet adapter
+    history:
+    - installed:
+        date: 2018-04-25
+        references:
+        - [computer, inm6151]
+        newstate: INUSE
+    - installed:
+        date: 2018-04-27
+        references:
+        - [computer, inm6151]
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-05-03
+        references:
+        - [computer, inm6151]
+        newstate: INUSE
+    - deinstalled:
+        date: 2018-06-11
+        references:
+        - [computer, inm6151]
+        newstate: AVAILABLE
+    - installed:
+        date: 2018-06-27
+        references:
+        - [computer, inm6151]
+        newstate: INUSE
+
+  mac-XDF400F9Q1RS:
+    type: virtual-machine / VIRT.MACHINE
+    manufacturer: KVM
+    model: Centos
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6087]
+
+  mac-X0123434DHG5:
+    type: printer
+    manufacturer: Brother
+    model: LabelPrinter QL-720NW
+    history:
+    - installed:
+        date: unknown
+        references:
+        - [computer, inm6173]
+        - [infrastructure, printer]
+
+  mac-X8ASDF34544F:
+    type: desktop
+    manufacturer: Dell
+    model: OptiPlex 790 SFF
+    history:
+    - deinstalled:
+        date: unknown
+        references:
+        - [computer, inm6072]
+
+
+  mac-XS0373DFH924:
+    type: desktop
+    manufacturer: Dell
+    model: OptiPlex 790 SFF
+    history:
+    - deinstalled:
+        date: unknown
+        references:
+        - [computer, inm6043]
+
+  WHGN89LL:
+    type: harddisk (external)
+    manufacturer: HGST
+    model: HTS725050A7E630, HDD SATA 6.0Gb/s, 500GB, Mfd. 13MAR13
+    history:
+    - installed:
+        date: Tue, 17 Apr 2018 18:11:20 +0200
+        references:
+        - [infrastructure, spare]
+        newstate: HOLD
+
+
+  5VJDKMZ6:
+    type: harddisk (external)
+    manufacturer: Seagate
+    model: ST9500420AS, HDD SATA 3.0Gb/s, 500GB, Mfd. 07242011
+    history:
+    - installed:
+        date: Tue, 17 Apr 2018 18:29:07 +0200
+        references:
+        - [infrastructure, spare]
+        newstate: HOLD
+    - installed:
+        date: 2018-04-27
+        newstate: HOLD
+
+
+  C2LJFB000285:
+    type: projector
+    manufacturer: Asus
+    model: LED Projector P1, Mfd. Feb 2012
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [infrastructure, presentations]
+        newstate: AVAILABLE
+
+  NMLF130113L:
+    type: projector
+    manufacturer: Epson
+    model: H362B LCD Projector
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [infrastructure, presentations]
+        newstate: AVAILABLE
+
+  REPK4400210:
+    type: projector
+    manufacturer: Epson
+    model: H476B LCD Projector
+    history:
+    - buy:
+        date: unknown
+        references:
+        - [infrastructure, presentations]
+        newstate: AVAILABLE

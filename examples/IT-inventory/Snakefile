@@ -1,0 +1,64 @@
+reporter = "../../datareport/reporter.py"   # this should just be "reporter"
+
+
+rule all:
+    '''
+    The first rule in the Snakefile defines the default. We just requrire the
+    HTML version of the report to be available.
+    '''
+    input:
+        'output/IT-Inventory.html',
+
+rule mkhtml:
+    '''
+    This rule uses Pandoc to convert a Markdown file to HTML. Some extensions
+    are enabled to produce nice tables.
+
+    Apart from the actual Markdown formatted report, also the style sheet (CSS)
+    is required in the output folder. This is copied in by another rule.
+    '''
+    input:
+        files=['output/{name}.md'],
+        css='output/document.css',
+    output:
+        'output/{name}.html',
+    params:
+        extensions="+simple_tables+multiline_tables",
+    shell:
+        '''
+        pandoc -f markdown{params.extensions} -t html --css "$(basename "{input.css}")" -o {output} {input.files}
+        '''
+
+rule copy_css:
+    '''
+    For nice styling of the output HTML files, we copy the style sheet (CSS)
+    into the HTML destination folder.
+    '''
+    output:
+        '{path}/{name}.css',
+    input:
+        '{name}.css',
+    shell:
+        '''
+        cp -v {input} {output}
+        '''
+
+import os.path
+rule IT_inventory_report:
+    '''
+    This rule produces the reprort from the database YAML file. The template
+    describes the format of the resulting report. Placeholders are replaced by
+    their respective values from the database and lists are automatically
+    filled with all filtered/sorted values.
+    '''
+    input:
+        template='IT-Inventory.template',
+        data='edvdata.yaml',
+    output:
+        'output/IT-Inventory.md',
+    shell:
+        '''
+        {reporter} --verbose -t {input.template} data={input.data} -o {output}
+        '''
+
+
