@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf8
 '''
-Usage: reporter [options] [--template=<template>] [--output=<file>] [<datadef>...]
-       reporter [options] [--template=<template>] [--output=<file>] --list=<name> [<datafile>...]
+Usage: reporter [options] [-y|-p|-j] [--list=<name>...] [--template=<template>] [--output=<file>] [<datadef>...]
 
    Create a report by filling the template with data according to <datadef>.
 
@@ -17,9 +16,25 @@ Options:
     --template-dir=<dir>
         specify the base directory for the used templates [default: .]
 
-    --list=<name>
-        when used in the second form, all datafiles will be appended to a list
-        which is assigned the name <name> [default: data]
+    --list=<name>...
+        all names given in --list options will be initialized as empty list and
+        consecutive `datadef`s will be appended to the list instead of assigned
+        to the name. Example:
+
+           reporter --list=bar foo=a.yml bar=b.yml bar=c.yml
+
+        would give objects `foo` and `bar`, where `foo` represents the object
+        loaded from `a.yml` and `bar` is a list containting objects loaded from
+        `b.yml` and `c.yml`.
+
+        This option can be given more than once to create multiple lists, e.g.
+
+           reporter --list=bar --list=baz  bar=a.yml bar=b.yml baz=c.yml baz=d.yml
+
+        would give lists `bar = [a, b]` and `baz = [c, d]`.
+
+    -y, --yaml
+        use yaml.safe_load (default)
 
     -j, --json
         use json.load instead of yaml.safe_load
@@ -66,23 +81,25 @@ def main():
     tmpl = env.get_template(args['--template'])
 
     dataloader = yaml.safe_load
-    if args['--python']:
-        dataloader = pythoneval
+    if args['--yaml']: dataloader = yaml.safe_load
+    if args['--python']: dataloader = pythoneval
     if args['--json']:
         import json
         dataloader = json.load
 
+    # load data
     data = dict()
     for datadef in args['<datadef>']:
         dataid, datafilename = datadef.split("=", 1)
-        log.info("loading '%s' from '%s'...", dataid, datafilename)
-        data[dataid] = dataloader(open(datafilename, 'r'))
-
-    for datafilename in args['<datafile>']:
-        log.info("loading '%s' entry from '%s'...", args['--list'], datafilename)
-        data.setdefault(args['--list'], list()).append(dataloader(open(datafilename, 'r')))
+        if dataid in args['--list']:
+            log.info("loading '%s' entry from '%s'...", args['--list'], datafilename)
+            data.setdefault(dataid, list()).append(dataloader(open(datafilename, 'r')))
+        else:
+            log.info("loading '%s' from '%s'...", dataid, datafilename)
+            data[dataid] = dataloader(open(datafilename, 'r'))
     log.debug("loading data complete.")
 
+    # output result
     ostream = sys.stdout
     if args['--output'] is not None:
         ostream = open(args['--output'], 'w')
