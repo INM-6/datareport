@@ -4,3 +4,4 @@ data/
 reports/
 dist/
 datareport.egg-info/
+setup.py

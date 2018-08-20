@@ -5,29 +5,82 @@ import re
 
 configfile: 'config.yaml'
 
-version = config['version']
+rule test_release:
+    input:
+        '.test-release-%s.date' % config['version']
+    message:
+        '''
+        The complete test-release process has finished successfully.
+        Check the release in an environment of your choice with
 
-rule upload:
+           pip install --index-url https://test.pypi.org/simple datareport
+
+        If you are happy with the result, do a full release with
+
+           snakemake -pr release
+        '''
+
+rule release:
+    input:
+        '.release-%s.date' % config['version']
+    message:
+        '''
+        The complete release process has finished successfully.
+        You should now globally be able to run
+
+           pip install datareport
+
+        '''
+
+rule test_upload:
     '''
-    This rule uploads the latest release to testpypi.
+    This rule uploads the latest release to the configured repository.
     '''
     input:
         'dist/datareport-{version}.tar.gz'
+    output:
+        '.test-release-{version}.date'
     params:
-        repo = "testpypi"
+        repo = 'testpypi'
     shell:
         '''
         twine upload --repository {params.repo} {input}
+        date --iso=seconds >>{output}
         '''
 
+rule upload:
+    '''
+    This rule uploads the latest release to the configured repository.
+    '''
+    input:
+        'dist/datareport-{version}.tar.gz'
+    output:
+        '.release-{version}.date'
+    shell:
+        '''
+        twine upload {input}
+        date --iso=seconds >>{output}
+        '''
 
 rule package:
     input:
         '../datareport/',
     output:
-        'dist/datareport-{version}.tar.gz'
+        tarball = 'dist/datareport-{version}.tar.gz',
     shell:
         '''
+        # config
+        sed -e "s/version='.*'/version='{wildcards.version}'/" setup.py >../setup.py
+
+        # package
+        cd ..
         python setup.py sdist
+
+        # cleanup
+        mv -v dist/* release/dist/
+        rm -rvf dist/
+
+        mv -v datareport.egg-info/* release/datareport.egg-info/
+        rm -rvf datareport.egg-info/
         '''
 
