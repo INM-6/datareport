@@ -33,10 +33,16 @@ setup(
     description="Tool to combine YAML datasets with Jinja2-based templates.",
     long_description=long_description,
 
+    entry_points = {
+        'console_scripts': [
+            'reporter = datareport.reporter:main',
+        ],
+    },
+
     # https://opensource.org/licenses/BSD-2-Clause
     license="BSD",
 
-    url='https://github.com/',
+    url='https://github.com/INM-6/datareport',
     # https://pypi.org/pypi?:action=list_classifiers
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
