@@ -74,6 +74,9 @@ def main():
         trim_blocks=True,
         lstrip_blocks=True,
         #autoescape=select_autoescape(['html', 'xml'])
+        extensions=[
+            'jinja2.ext.loopcontrols',
+        ],
     )
 
     # load template
