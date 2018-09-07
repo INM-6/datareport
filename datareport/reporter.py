@@ -80,8 +80,9 @@ def main():
     log.info("loading template '%s'...", args['--template'])
     tmpl = env.get_template(args['--template'])
 
-    dataloader = yaml.safe_load
-    if args['--yaml']: dataloader = yaml.safe_load
+    yamlin = yaml.YAML(typ="safe")
+    dataloader = yamlin.load_all
+    if args['--yaml']: dataloader = yamlin.load_all
     if args['--python']: dataloader = pythoneval
     if args['--json']:
         import json
