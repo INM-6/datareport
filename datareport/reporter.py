@@ -37,10 +37,13 @@ Options:
         change name of the metadata dictionary [default: report]
 
     -y, --yaml
-        use yaml.safe_load (default)
+        use yaml.load (default)
+
+    --yaml-loader=<type>
+        choose a specific loader type from the ruamel lib [default: safe]
 
     -j, --json
-        use json.load instead of yaml.safe_load
+        use json.load instead of yaml.load
 
     -p, --python
         use eval() loading (very insecure!!!)
@@ -55,7 +58,7 @@ from docopt import docopt
 
 from pprint import pformat
 import logging
-from ruamel import yaml
+from ruamel.yaml import YAML
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import os.path
 import sys
@@ -86,7 +89,7 @@ def main():
     log.info("loading template '%s'...", args['--template'])
     tmpl = env.get_template(args['--template'])
 
-    yamlin = yaml.YAML(typ="safe")
+    yamlin = YAML(typ=args['--yaml-loader'])
     dataloader = yamlin.load_all
     if args['--yaml']: dataloader = yamlin.load_all
     if args['--python']: dataloader = pythoneval
