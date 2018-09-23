@@ -24,14 +24,6 @@
 
     pip install --index-url https://test.pypi.org/simple datareport
 
-   Currently no executable is installed, but you can set an alias in your bash
-   with
-
-    alias reporter='python -c "from datareport import reporter; reporter.main()"'
-
-   If you want to have this permanently configured, just paste this line into
-   your `.bashrc` (or equivalent).
-
 ## Requirements
 
    All required packages are listed in `environment.yaml`. In case you
@@ -41,7 +33,32 @@
 
 # Getting Started
 
-   For easing your first steps with datareport a small set of documented
-   examples can be found in the `examples/` folder. The README file gives an
-   overview and you can find the right place to start.
+   For easing your first steps with datareport a small set of [documented
+   examples](examples/README) can be found in the `examples/` folder. The
+   README file gives an overview and you can find the right place to start.
+
+   For designing reports you need to know about the [templating
+   language](http://jinja.pocoo.org/docs/2.10/templates/) of
+   [Jinja2](http://jinja.pocoo.org/docs/2.10/).
+
+   As data formats you can use different formats. For understanding the details
+   about each format you find a lot of information on the web, especially:
+
+   * YAML (→ [specification](http://yaml.org/spec/)) and the
+     [ruamel.yaml](https://yaml.readthedocs.io/en/latest/basicuse.html)
+     package.
+   * JSON (→ [specification](https://json.org/))
+
+
+# Developing datareport
+
+   Contributions are very welcome! Write issues for feature requests or
+   directly file a pull-request with your contribution and/or contact me
+   directly!
+
+## Releases
+
+   The release workflow is mostly automated and is in the [release/](release/)
+   folder.
+
 
