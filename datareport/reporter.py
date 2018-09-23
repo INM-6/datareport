@@ -72,7 +72,7 @@ def pythoneval(stream):
 
 def main(cmdline = None):
     if cmdline is None:
-        cmdline = sys.argv
+        cmdline = sys.argv[1:]
     else:
         cmdline = shlex.split(cmdline)  # have a possibility for testing
     args = docopt(__doc__, cmdline)
