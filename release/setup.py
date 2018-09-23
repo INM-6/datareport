@@ -18,7 +18,7 @@ install_requires = [
 
 setup(
     name="datareport",
-    version='0.1.2',
+    version='<automatically-added-by-packaging>',
     packages=['datareport'],
     package_data={
         '': [
