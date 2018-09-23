@@ -33,6 +33,9 @@ Options:
 
         would give lists `bar = [a, b]` and `baz = [c, d]`.
 
+    --meta-dict=<name>
+        change name of the metadata dictionary [default: report]
+
     -y, --yaml
         use yaml.safe_load (default)
 
@@ -103,6 +106,14 @@ def main():
             data[dataid] = dataloader(open(datafilename, 'r'))
     log.debug("loading data complete.")
 
+    if args['--meta-dict'] in data:
+        log.error("metadata dictionary has same name as loaded data! use '--meta-dict' to rename, or change datadef")
+        return 1
+
+    data[args['--meta-dict']] = {
+        "time": datetime.datetime.now(),
+    }
+
     # output result
     ostream = sys.stdout
     if args['--output'] is not None:
@@ -111,5 +122,7 @@ def main():
     with ostream as outfile:
         outfile.write(tmpl.render(**data))
 
+    return 0
+
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
