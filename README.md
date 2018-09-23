@@ -8,7 +8,7 @@
    the produced output can then be converted to various target formats (HTML,
    PDF, ...).
 
-   To keep a good overview which data is aquired for different parts of the
+   To keep a good overview which data is acquired for different parts of the
    report, it is probably a good step to automate the whole workflow with a
    tool like [snakemake](https://snakemake.readthedocs.io/en/stable/) or other
    make-like tools.
@@ -37,11 +37,19 @@
    examples](examples/README.md) can be found in the `examples/` folder. The
    README file gives an overview and you can find the right place to start.
 
-   For designing reports you need to know about the [templating
-   language](http://jinja.pocoo.org/docs/2.10/templates/) of
-   [Jinja2](http://jinja.pocoo.org/docs/2.10/).
+## Further reading
 
-   As data formats you can use different formats. For understanding the details
+   For designing reports you need to know about the templating language and
+   since you will want to use some automation for the reporting process, also a
+   make-like tool is very helpful. Look at the excellent `snakemake` for that!
+
+   * [Jinja2](http://jinja.pocoo.org/docs/2.10/) (→ [templating
+     language](http://jinja.pocoo.org/docs/2.10/templates/))
+
+   * [Snakemake](https://pypi.org/project/snakemake/) (→ [writing
+     rules](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html))
+
+   As data inputs you can use different formats. For understanding the details
    about each format you find a lot of information on the web, especially:
 
    * YAML (→ [specification](http://yaml.org/spec/)) and the
