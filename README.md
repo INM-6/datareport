@@ -34,7 +34,7 @@
 # Getting Started
 
    For easing your first steps with datareport a small set of [documented
-   examples](examples/README) can be found in the `examples/` folder. The
+   examples](examples/README.md) can be found in the `examples/` folder. The
    README file gives an overview and you can find the right place to start.
 
    For designing reports you need to know about the [templating

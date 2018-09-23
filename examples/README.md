@@ -9,7 +9,7 @@
    playground to come back to later, when you want to try playing with advanced
    concepts in a simple environment.
 
-   [→ have a look!](miniexample/README)
+   [→ have a look!](miniexample/)
 
 ## Phonelist
 
@@ -18,14 +18,14 @@
    files is added to the workflow and you can explore the `groupby` concept of
    Jinja templates.
 
-   [→ have a look!](Phonelist/README)
+   [→ have a look!](Phonelist/)
 
 ## IT-inventory
 
    A very complex dataset with an example template producing different overview
    tables. Why should difficult things look difficult?
 
-   [→ have a look!](IT-inventory/README)
+   [→ have a look!](IT-inventory/)
 
 ## Juser-authors
 
@@ -34,5 +34,5 @@
    see how to include data from a web database. Data from different files is
    combined and two reports are generated from the combination.
 
-   [→ have a look!](Juser-authors/README)
+   [→ have a look!](Juser-authors/)
 
