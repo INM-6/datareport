@@ -61,15 +61,22 @@ import logging
 from ruamel.yaml import YAML
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import os.path
+import shlex
 import sys
+import datetime
 log = logging.getLogger()
 logging.basicConfig(level=logging.INFO)
 
 def pythoneval(stream):
     return eval(stream.read())
 
-def main():
-    args = docopt(__doc__)
+def main(cmdline = None):
+    if cmdline is None:
+        cmdline = sys.argv
+    else:
+        cmdline = shlex.split(cmdline)  # have a possibility for testing
+    args = docopt(__doc__, cmdline)
+
     if args['--verbose']:
         log.setLevel(logging.DEBUG)
     log.debug(pformat(args))
@@ -90,8 +97,8 @@ def main():
     tmpl = env.get_template(args['--template'])
 
     yamlin = YAML(typ=args['--yaml-loader'])
-    dataloader = yamlin.load_all
-    if args['--yaml']: dataloader = yamlin.load_all
+    dataloader = yamlin.load
+    if args['--yaml']: dataloader = yamlin.load
     if args['--python']: dataloader = pythoneval
     if args['--json']:
         import json

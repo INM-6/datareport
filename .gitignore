@@ -5,3 +5,5 @@ reports/
 dist/
 datareport.egg-info/
 setup.py
+.eggs/
+__pycache__/

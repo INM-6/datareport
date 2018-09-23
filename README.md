@@ -24,6 +24,7 @@
 
     pip install --index-url https://test.pypi.org/simple datareport
 
+
 ## Requirements
 
    All required packages are listed in `environment.yaml`. In case you
@@ -36,6 +37,7 @@
    For easing your first steps with datareport a small set of [documented
    examples](examples/README.md) can be found in the `examples/` folder. The
    README file gives an overview and you can find the right place to start.
+
 
 ## Further reading
 
@@ -63,6 +65,21 @@
    Contributions are very welcome! Write issues for feature requests or
    directly file a pull-request with your contribution and/or contact me
    directly!
+
+
+## Tests
+
+   This project uses the [PyTest framework](https://docs.pytest.org/en/latest/)
+   with tests defined in the [tests/](tests/) sudirectory. It is added into the
+   setuptools config, so that it can be run with
+
+    python setup.py test
+
+   This automatically tests a temporarily packaged version.
+
+   Alternatively you can run `pytest` manually with all it [glory
+   details](https://docs.pytest.org/en/latest/usage.html).
+
 
 ## Releases
 
