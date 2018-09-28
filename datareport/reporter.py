@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf8
 '''
-Usage: reporter [options] [-y|-p|-j] [--list=<name>...] [--template=<template>] [--output=<file>] [<datadef>...]
+Usage: reporter [options] [-y|-p|-j] [--list=<name>...] [--filter=<pyfile>...] [--template=<template>] [--output=<file>] [<datadef>...]
 
    Create a report by filling the template with data according to <datadef>.
 
@@ -51,6 +51,10 @@ Options:
     -o, --output=<filename>
         write to this file instead of stdout
 
+    --filter=<pythonfile>
+        load functions from given python file and add them to the available
+        filters
+
     -v, --verbose       increase output
     -h, --help          print this text
 '''
@@ -69,6 +73,22 @@ logging.basicConfig(level=logging.INFO)
 
 def pythoneval(stream):
     return eval(stream.read())
+
+def loadfilters(listoffiles):
+    import importlib.util
+    filters = dict()
+    for filename in listoffiles:
+        log.debug("loading filters from %s...", filename)
+        spec = importlib.util.spec_from_file_location("loaded_filters", filename)
+        assert spec, "Could not load python file %s" % filename
+        newfilters = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(newfilters)
+        for x in dir(newfilters):
+            if x.startswith('_'): continue
+            assert x not in filters
+            filters[x] = getattr(newfilters, x)
+            log.debug("   filter %s", x)
+    return filters
 
 def main(cmdline = None):
     if cmdline is None:
@@ -91,6 +111,9 @@ def main(cmdline = None):
             'jinja2.ext.loopcontrols',
         ],
     )
+    newfilters = loadfilters(args['--filter'])
+    log.debug("new filters: %s", newfilters)
+    env.filters.update(newfilters)
 
     # load template
     log.info("loading template '%s'...", args['--template'])

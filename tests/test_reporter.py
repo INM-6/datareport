@@ -50,7 +50,7 @@ def test_yamldata(tmpdir):
         )
 
 
-def test_insufficient_data(tmpdir):
+def _test_insufficient_data(tmpdir):
     # check if it breaks when a datadef is missing
     template = tmpdir.join("report.md")
     template.write("# Hello {{ data.name }}")
@@ -85,3 +85,46 @@ def test_insufficient_data(tmpdir):
     # jinja2.exceptions.UndefinedError: 'data' is undefined
 
     assert not output.check()   # no output should have been produced
+
+
+def test_filters(tmpdir):
+    # check if simple yaml data can correctly be loaded
+    template = tmpdir.join("report.md")
+    template.write('''
+This is about {{data.name}}.
+
+The bar version is {{data.name|bar}}.
+
+The cut version is
+{% for x in data.name|cut %}
+    * {{x}}
+{% endfor %}
+''')
+
+    filters = tmpdir.join("f.py")
+    filters.write('''
+def bar(x):
+    return x+"bar"
+
+def cut(x):
+    yield from x
+''')
+
+    yaml = tmpdir.join("data.yaml")
+    yaml.write("name: World")
+    assert yaml.check()
+    output = tmpdir.join("output.md")
+    reporter("-v --template-dir '%s' --filter '%s' data=%s -o '%s'" % (tmpdir, filters, yaml, output));
+    assert output.check()
+    assert output.read() == '''
+This is about World.
+
+The bar version is Worldbar.
+
+The cut version is
+    * W
+    * o
+    * r
+    * l
+    * d
+'''
