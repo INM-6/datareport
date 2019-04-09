@@ -132,7 +132,7 @@ def main(cmdline = None):
     for datadef in args['<datadef>']:
         dataid, datafilename = datadef.split("=", 1)
         if dataid in args['--list']:
-            log.info("loading '%s' entry from '%s'...", args['--list'], datafilename)
+            log.info("loading '%s' entry from '%s'...", dataid, datafilename)
             data.setdefault(dataid, list()).append(dataloader(open(datafilename, 'r')))
         else:
             log.info("loading '%s' from '%s'...", dataid, datafilename)
