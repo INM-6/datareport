@@ -2,11 +2,11 @@
 # Reporter
 
    This tool helps in gathering and formatting of data into a report. The tool
-   `reporter.py` basically combines YAML data files with Jinja2-based
-   templates.  In this way simple markup versions of your report can be
-   produced. Together with a format converter like [Pandoc](http://pandoc.org)
-   the produced output can then be converted to various target formats (HTML,
-   PDF, ...).
+   `reporter.py` basically combines [YAML](http://yaml.org/spec/) data files
+   with [Jinja2](http://jinja.pocoo.org/docs/2.10/)-based templates.  In this
+   way simple markup versions of your report can be produced. Together with a
+   format converter like [Pandoc](http://pandoc.org) the produced output can
+   then be converted to various target formats (HTML, PDF, ...).
 
    To keep a good overview which data is acquired for different parts of the
    report, it is probably a good step to automate the whole workflow with a
